@@ -30,6 +30,6 @@ jobs:
         azureSubscription: 'JavaSpring - Service Endpoint'
         appType: webAppLinux
         appName: LinuxJSEApp
-        package: '$(System.ArtifactsDirectory)/**/*.war'
+        package: '$(System.ArtifactsDirectory)/**/*.jar'
         runtimeStack: 'JAVA|11-java11'
         startUpCommand: 'mvn spring-boot:run'
