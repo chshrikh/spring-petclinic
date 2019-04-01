@@ -32,4 +32,4 @@ jobs:
         appName: LinuxJSEApp
         package: '$(System.ArtifactsDirectory)/**/*.jar'
         runtimeStack: 'JAVA|11-java11'
-        startUpCommand: 'java -jar target/*.jar'
+        startUpCommand: 'java -jar **/target/*.jar'
