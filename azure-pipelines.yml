@@ -31,5 +31,5 @@ jobs:
         appType: webAppLinux
         appName: LinuxJSEApp
         package: '$(System.ArtifactsDirectory)/**/*.jar'
-        runtimeStack: 'JAVA|11-java11'
+        runtimeStack: 'JAVA|8-java8'
         startUpCommand: 'java -jar **/target/*.jar'
