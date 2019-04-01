@@ -31,5 +31,5 @@ jobs:
         appType: webAppLinux
         appName: LinuxJSEjava8
         package: '$(System.ArtifactsDirectory)/**/*.jar'
-        runtimeStack: 'JAVA|8-java8'
-        startUpCommand: 'java -jar **/target/*.jar'
+#        runtimeStack: 'JAVA|8-java8'
+        startUpCommand: 'java -jar target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
