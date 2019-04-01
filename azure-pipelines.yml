@@ -29,7 +29,7 @@ jobs:
       inputs:
         azureSubscription: 'JavaSpring - Service Endpoint'
         appType: webAppLinux
-        appName: LinuxJSEApp
+        appName: linuxtomcatapp
         package: '$(System.ArtifactsDirectory)/**/*.jar'
-        runtimeStack: 'JAVA|11-java11'
+        runtimeStack: 'TOMCAT|8.5-java11'
         startUpCommand: 'mvn spring-boot:run'
