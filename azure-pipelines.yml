@@ -32,4 +32,5 @@ jobs:
         appName: LinuxJSEjava8
         package: '$(System.ArtifactsDirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
         runtimeStack: 'null'
-        startUpCommand: 'java -jar spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar  --server.port=80'
+#       startUpCommand: 'java -jar spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar  --server.port=80'
+        startUpCommand:mvnw spring-boot:run
