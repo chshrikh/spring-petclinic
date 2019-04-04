@@ -30,7 +30,7 @@ jobs:
         azureSubscription: 'JavaSpring - Service Endpoint'
         appType: webAppLinux
         appName: LinuxTomcatApp
-        package: '$(System.ArtifactsDirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
+        package: '$(System.ArtifactsDirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.war'
         runtimeStack: 'null'
         startUpCommand: 'mvn azure-webapp:deploy'
 #       startUpCommand: 'java -jar spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar  --server.port=80'
