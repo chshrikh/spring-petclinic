@@ -10,12 +10,18 @@ jobs:
       displayName: 'Maven $(mavenPOMFile)'
       inputs:
         mavenPomFile: pom.xml
-        testResultsFiles: '**/TEST*.xml'
-        mavenAuthenticateFeed: true
+    
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+      inputs:
+        SourceFolder: '$(system.defaultworkingdirectory)'
+        Contents: '**/*.jar'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifacts: drop'
       inputs:
-        PathtoPublish: '$(Build.SourcesDirectory)'
+        PathtoPublish: '$(build.artifactstagingdirectory)'
   
   - job: Deploy
     dependsOn: MavenBuild
@@ -29,9 +35,10 @@ jobs:
       inputs:
         azureSubscription: 'JavaSpring - Service Endpoint'
         appType: webAppLinux
-        appName: LinuxTomcatApp
-        package: '$(System.ArtifactsDirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.war'
-        runtimeStack: 'null'
-        startUpCommand: 'mvn azure-webapp:deploy'
+        appName: LinuxJSEApp
+        package: '$(System.DefaultWorkingDirectory)/**/*.jar'
+
+#        runtimeStack: 'null'
+#        startUpCommand: 'mvn azure-webapp:deploy'
 #       startUpCommand: 'java -jar spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar  --server.port=80'
 #        startUpCommand: 'mvnw spring-boot:run'
