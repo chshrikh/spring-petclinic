@@ -36,7 +36,7 @@ jobs:
         azureSubscription: 'JavaSpring - Service Endpoint'
         appType: webAppLinux
         appName: LinuxJSEApp
-        package: '$(System.DefaultWorkingDirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
+        package: '$(build.artifactstagingdirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
 
 #        runtimeStack: 'null'
 #        startUpCommand: 'mvn azure-webapp:deploy'
