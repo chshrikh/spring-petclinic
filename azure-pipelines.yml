@@ -23,20 +23,26 @@ jobs:
       inputs:
         PathtoPublish: '$(build.artifactstagingdirectory)'
   
-  - job: Deploy
+  - deployment: Deploy
+    displayName: Deploy job
+    # can not w euse variables?
     dependsOn: MavenBuild
-    steps:
-    - task: DownloadBuildArtifacts@0
-      displayName: 'Download Build Artifacts'
-      inputs:
-        artifactName: drop
-    - task: AzureWebApp@1
-      displayName: 'Azure Web App Deploy: LinuxJSEApp'
-      inputs:
-        azureSubscription: 'RMPM'
-        appType: webAppLinux
-        appName: LinuxJSEApp
-        package: '$(build.artifactstagingdirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
+    environment: 'SmartHotel'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@0
+            displayName: 'Download Build Artifacts'
+            inputs:
+              artifactName: drop
+          - task: AzureWebApp@1
+            displayName: 'Azure Web App Deploy: LinuxJSEApp'
+            inputs:
+              azureSubscription: 'RMPM'
+              appType: webAppLinux
+              appName: LinuxJSEApp
+              package: '$(build.artifactstagingdirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
 
 #        runtimeStack: 'null'
 #        startUpCommand: 'mvn azure-webapp:deploy'
