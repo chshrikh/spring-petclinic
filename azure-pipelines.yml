@@ -33,7 +33,7 @@ jobs:
     - task: AzureWebApp@1
       displayName: 'Azure Web App Deploy: LinuxJSEApp'
       inputs:
-        azureSubscription: 'JavaSpring - Service Endpoint'
+        azureSubscription: 'RMPM'
         appType: webAppLinux
         appName: LinuxJSEApp
         package: '$(build.artifactstagingdirectory)/**/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar'
